@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport"  content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#AC6B0D" />
+	<link rel="stylesheet" type="text/css" href="static/style.css" />
+	<!-- <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png"> -->
+    <script type="text/javascript" src="static/script.js"></script>
+    <title>IjonMichy</title>
+</head>
+<body onscroll="javascript:scrollTOC()">
+<!--
+    <div id="header">
+        <div id="headerbody">
+            <h1>Ijon<span>Michy</span></h1>
+            <div id="navi">
+                <a href="./">BLOG</a>
+                <a href="./about.htm">ABOUT</a>
+            </div>
+        </div>
+    </div>
+-->
+    <div id="banner">
+        <div id="bannerbody">
+            <h1>Wenn am Sonntag Bundestagswahl wäre...</h1>
+            <img src="media/wahl-o-mat_banner.jpg" alt="Wahl-O-Mat - Du hast die Wahl" />
+        </div>
+    </div>
+    <div id="content">
+        <div id="textbody">
+            <h1>... wen würde die SPD wählen?</h1>
+            <p class="date">14. September 2021</p>
+            <h3>Zuerst: ein Disclaimer</h3>
+            <p>
+                Die im Folgenden präsentierte Auswertung basiert auf
+                 <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/45484/archiv">Archivdaten</a> des <i>Wahl-O-Mat</i>&reg;s 
+                 der Bundeszentrale für politische Bildung. Die BPB ist jedoch nicht Urheber dieser Analyse
+                 &minus; noch hat sie in sonst irgendeiner Art und Weise auf die Erstellung derselbigen Einfluss genommen!
+            </p>
+            <p>
+                Und überhaupt sollten die hier präsentierten Inhalte lieber mit einem (oder wenigstens mit einem halben) Augenzwinkern betrachtet werden &#x1F60F;
+            </p>
+            <h2>Eine Wahlentscheidungshilfe für Deutschland</h2>
+            <p>
+                <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/326661/die-geschichte-des-wahl-o-mat">Seit der Bundestagswahl 2002</a> gibt es den 
+                <a href="https://www.wahl-o-mat.de/">Wahl-O-Mat</a> in Deutschland.
+                Insbesondere <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/45379/idee-und-wirkung?p=all">zur Mobilisierung von Jung- und Erstwählern </a>wurde er damals
+                von der Bundeszentrale für politische Bildung (bpb) eingeführt, dürfte inzwischen aber auch von einem breiteren Bevölkerungsanteil genutzt werden. So wurde 
+                er im Vorfeld der Bundestagswahl 2017 bereits <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/177430/die-nutzer-des-wahl-o-mat">über 15 Millionen mal</a>
+                und insgesamt - seit seiner Einführung - über 85 Millionen mal aufgerufen.
+            </p>
+            <p>
+                Dabei war damals die Idee der “Voting Advice Application” (VAA) schon gar nicht mehr neu. Unsere Nachbarn aus den Niederlanden waren schneller: 
+                Der <a href="https://home.stemwijzer.nl/">StemWijzer</a> wird als Urvater aller VAAs angesehen. Bereits 1989 ist er zuerst als Booklet und in den 90ern dann 
+                <a href="http://vaa-research.net/?page_id=80">als Floppy-Disk erschienen</a>.
+            </p>
+            <p>
+                Auch wenn von den Disketten damals nicht mehr als 50 Exemplare verkauft wurden, so sind die Auswirkungen der Wahlentscheidungshilfen mittlerweile nicht mehr 
+                zu unterschätzen: Die <a href="https://www.sozwiss.hhu.de/institut/abteilungen/politikwissenschaft/politik-ii/prof-dr-stefan-marschall/forschungsprojekte/wahl-o-mat-forschung">Heinrich Heine Universität Düsseldorf</a>
+                begleitet den Wahl-O-Mat bereits von Anfang an von der wisschenschaftlichen Seite. Einen positiven 
+                Effekt auf die politische Bildung konnte sie dabei zwar bisher <a href="https://www.tandfonline.com/doi/full/10.1080/19331681.2019.1644265">nicht feststellen</a> 
+                - sehr wohl aber auf die <a href="https://www.inderscience.com/info/inarticle.php?artid=51314">Wahlbereitschaft</a>. In einer kürzlich veröffentlichten 
+                <a href="https://www.zeit.de/digital/2021-09/wahlentscheidung-wahl-o-mat-bundestagswahl-digitales-tool-einfluss">Meta-Analyse</a> wurde außerdem gezeigt, dass Nutzer
+                von VAAs im Mittel 1,5 mal häufiger ihre Wahlentscheidung ändern. Das dürfte auch die Parteien aufhorchen lassen.
+            </p>
+            <p>
+                Spätestens seitdem ich wahlberechtigt bin nutze ich den Wahl-O-Mat selbst. Auch wenn der Wahl-O-Mat offiziell keine Wahlempfehlung abgeben will, ist der Nutzen
+                nicht von der Hand zu weisen. Durch die Einführung neuer Funktionen und neue Möglichkeiten, das eigene Ergebnis weiter zu erforschen und Statements der verschiedenen 
+                Parteien zu vergleichen, erwische ich mich wenigstens einmal pro Bundestags- oder Landtagswahl dabei, wie ich mehr Zeit vor dem Bildschirm verbringe, als ich mir 
+                vorgenommen habe.
+            </p>
+            <p>
+                Eine unscheinbare Notiz unter der Ergebnisanzeige hat mich dabei auf die Idee für ein interessantes Data Science-Projekt gebracht:
+            </p>
+            <p class="yellow-back">
+                Hohe Übereinstimmungen Ihrer Antworten mit mehreren Parteien bedeuten nicht zwangsläufig eine inhaltliche Nähe dieser Parteien zueinander.
+            </p>
+            <p>
+                Sicherlich &minus; so würde man doch denken &minus; haben ähnliche Übereinstimmungswerte doch wenigstens eine gewisse Aussagekraft. Wenn es allerdings darum gehen soll, 
+                die Inhalte der Wahlprogramme mithilfe des Wahl-O-Mat’s zu vergleichen, stellt sich diese Frage aber gar nicht. Die einzelnen Positionen der verschiedenen 
+                Parteien sind ja <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/45484/archiv">frei verfügbar</a>. Man müsste also nur ein simples Auswerteprogramm 
+                schreiben und könnte dann zum Beispiel die Frage stellen: Wenn das Wahlprogramm der SPD den Wahl-O-Mat ausfüllen würde, welche Empfehlung würde der Wahl-O-Mat 
+                dann abgeben?
+            </p>
+            <h2>Wie funktioniert der Wahl-O-Mat?</h2>
+            <p>
+                Dazu muss man sich kurz vergegenwärtigen, wie der Wahl-O-Mat eigentlich funktioniert. Und damit meine ich nicht die Benutzung des Tools. Ich gehe davon aus, 
+                dass der/die Leser*in damit - zumindest ansatzweise - vertraut ist. (Ansonsten gibt's die Details 
+                <a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/294576/wie-funktioniert-der-wahl-o-mat">hier</a>.) Ich spreche von der Methodik: Wie berechnet der Wahl-O-Mat, 
+                wie hoch meine Zustimmung zu einer bestimmten Partei ist?
+            </p>
+            <p>
+                Tatsächlich ist die Mathematik dahinter <a href="https://www.bpb.de/system/files/dokument_pdf/201026_rechnmodell_final.pdf">ziemlich simpel</a>: 
+                Beim Ausfüllen des Wahl-O-Mats wird der Nutzer aufgefordert verschiedene These mit “stimme zu”, “neutral” oder “stimme nicht zu” zu bewerten. Die 
+                Zustimmung zu einer bestimmten These wird mit 2 Punkten angerechnet. Bei einer einfachen Abweichung wird 1 Punkt angesetzt (sprich, entweder die 
+                Partei oder der Nutzer bewerten die These mit “neutral” und der andere mit “stimme zu” oder “stimme nicht zu”). Bei gegensätzlichen Positionen 
+                gibt es 0 Punkte. Man kann den Positionen also bspw. die folgenden Zahlenwerte zuweisen:
+            </p>
+            <table>
+                <tr>
+                    <th>Position</th><th>Zahlenwert</th>
+                </tr>
+                <tr>
+                    <td>stimme zu</td><td>+1</td>
+                </tr>
+                <tr>
+                    <td>neutral</td><td>0</td>
+                </tr>
+                <tr>
+                    <td>stimme nicht zu</td><td>-1</td>
+                </tr>
+            </table>
+            <p>
+                Der Zustimmungswert zu einer bestimmten These ergibt sich dann aus der vorzeichenbereinigten Differenz zwischen den Positionen von Wähler und Partei:
+            </p>
+            <div class="math">
+                <img src="./media/eq1.svg" alt="Zustimmungswert = Betrag aus Position Wähler minus Position Partei"/>
+            </div>
+            <p>
+                Insgesamt wird man beim Wahl-O-Mat mit 38 Thesen konfrontiert, d.h. bei Übereinstimmung aller Positionen mit einer bestimmten Partei kann der Nutzer 
+                maximal <math><mrow><mi>2</mi><mo>&#xd7;</mo><mi>38</mi><mo>=</mo><mi>76</mi></mrow></math> Punkte erreichen. (Die doppelte Gewichtung, die beim Wahl-O-Mat noch individuell 
+                für jede These ausgewählt werden kann, sei hier ignoriert.) Der “Übereinstimmungswert” mit einer Partei in Prozent &minus; im Folgenden “Wahl-O-Mat Score” genannt &minus; errechnet sich 
+                also aus der Summe der Zustimmungswerte geteilt durch die Maximalpunktzahl:
+            </p>
+            <div class="math">
+                <img src="./media/eq2.svg" alt="Score = Summe Zustimmungswerte geteilt durch 78"/>
+            </div>
+            <p>
+                Auf diese Weise kann man nun alle Positionen aller Parteien gegeneinander abgleichen. (Die Parteien “füllen den Wahl-O-Mat aus”.) Um nun also die Frage zu beantworten, 
+                welche Partei die SPD &minus; und alle anderen Parteien &minus; bei der Bundestagswahl 2021 wählen sollten:
+            </p>
+            <div class="container matrix">
+                <iframe src="graphs/elections/bundestag_2021.htm" class="chart-iframe" scrolling="no", frameBorder="0"></iframe>
+            </div>
+            <p class="caption">
+                Wahl-O-Mat-Score der 2021 zur Bundestagswahl zugelassenen Parteien, wenn jede Partei mit ihren jeweiligen Positionen den Wahl-O-Mat ausfüllen würde - von links
+                nach rechts und von oben nach unten absteigend nach den Bewertungen der Partei DIE LINKE sortiert. Mit der Maus über das Raster fahren, um detaillierte Werte
+                anzeigen zu lassen.<br />
+                (Hinweis zur Partei für Gesundheitsforschung: Die Partei nimmt zwar an allen Wahl-O-Maten teil, bewertet aber jede Position mit “neutral”, weshalb ihre Einstufung
+                nur wenig aussagekräftig ist. Sie wurde der Vollständigkeit halber nicht entfernt.)
+            </p>
+            <p>
+                Im obigen Graph sind die Wahl-O-Mat Scores aller Parteien zueinander dargestellt. Die Übereinstimmung der Positionen einer Partei mit sich selbst ist natürlich 
+                jeweils 100%. Der Graph ist um die 100%-Diagonale zwecks besserer Lesbarkeit gespiegelt (er enthält also alle Informationen doppelt). Außerdem sind die Scores 
+                nach Übereinstimmung mit der Partei DIE LINKE sortiert, um von links nach rechts und von oben nach unten so etwas wie das politische Spektrum abzubilden.*
+            </p>
+            <p class="info">
+                *: Auch wenn DIE LINKE vielleicht nicht die Partei ist, die man am weitesten am linken Rand verordnen würde… Interessanterweise ist der Wahl-O-Mat Score 
+                zwischen DIE LINKE und AfD der niedrigste Wert überhaupt, weshalb letztere auch ganz rechts angeordet ist. Natürlich gibt es sogar am rechten Rand Parteien mit 
+                noch extremeren Positionen, aber dazu - und warum die Vorstellung vom eindimensionalen politischen Spektrum ohnehin problematisch ist - weiter unten mehr.
+            </p>
+            <p>
+                Natürlich muss man betonen, dass die Aussagekraft zur inhaltlichen Übereinstimmung zweier Parteien mit dieser Methodik immer noch sehr begrenzt ist. Zwei Parteien 
+                können eine gute Übereinstimmung bei populären Themen haben und sich trotzdem in wesentlichen Streitfragen widersprechen. Wie oben erwähnt, möchte selbst die bpb 
+                das Wahl-O-Mat Ergebnis nicht als Wahlempfehlung verstehen. Und ein Kritikpunkt an dem Tool ist ohnehin, dass die Parteien an den Rändern des politischen Spektrums 
+                nicht gut genug berücksichtigt werden, weshalb es bisweilen bei unscheinbaren Nutzern zu “<a href="https://www.derwesten.de/politik/wahl-o-mat-bundestagswahl-welt-afd-cdu-fdp-bundeszentrale-politische-bildung-ergebnis-wahlhilfe-berlin-kritik-id233187887.html">überraschenden</a>”
+                Ergebnissen kommt. Der NPD wurde gar vorgeworfen, mittels Wahl-O-Mat zu versuchen 
+                “<a href="https://www.bpb.de/politik/wahlen/wahl-o-mat/45429/npd-als-wahl-o-mat-ergebnis">mit zustimmungsfähigen Themen Akzeptanz zu erzielen</a>”. Die bpb versucht,
+                dem entgegenzuwirken, indem sie extremere Positionen in den Wahl-O-Mat aufnimmt. Das ändert aber wenig daran, dass - um endlich die Frage vom Anfang zu beantworten - 
+                die SPD, laut Wahl-O-Mat, die (<a href="https://www.im.nrw/marxistisch-leninistische-partei-deutschlands-mlpd">vom Verfassungsschutz beobachtete</a>) MLPD wählen sollte! 
+                (Und um die Überparteilichkeit zu wahren: Auch die CDU/CSU kommt hier nicht gut weg mit einem NPD-Score von 68%.) Weitere Probleme mit der Methode werden weiter unten noch diskutiert. 
+            </p>
+            <p>
+                Nichtsdestotrotz sieht der obige Graph in etwa so aus, wie man es erwarten würde. Die
+                linksliberalen, grünen Parteien können untereinander hohe Übereinstimmungswerte aufweisen, was man an dem dunkelgrünen Bereich im oberen linken Eck gut erkennen 
+                kann. So erzielt die SPD selbstverständlich auch einen hohen Wahl-O-Mat-Score mit DIE LINKE (74%) sowie mit den GRÜNEN (71%). Der Score von SPD zu 
+                Noch-Koalitionspartner CDU/CSU ist mit 51% überraschend niedrig. Zum Vergleich: Der Wert lag vor der letzten Bundestagswahl noch bei 70%! Kehrt die Partei also 
+                inzwischen wirklich wieder <a href="https://www.augsburger-allgemeine.de/politik/Hintergrund-Andrea-Nahles-will-zurueck-zu-den-Wurzeln-der-SPD-id53531246.html">zu ihren Wurzeln zurück</a>?
+            </p>
+            <p>
+                Der grüne Bereich im unteren rechten Eck zeigt die gute Übereinstimmung der konservativen und wirtschaftsliberalen Parteien untereinander, wie bspw. der Score 
+                von CDU/CSU und dem ehemaligen Koalitionspartner FDP (68%) zeigt.
+            </p>
+            <p>
+                Für mich persönlich waren aber vor allem auch die Bewertungen der Kleinparteien interessant. Viele der, zum Teil auch ganz frischen, Parteien konnte ich so 
+                inhaltlich zum ersten mal einordnen.
+            </p>
+            <p>
+                Aber die Überlegung zu den (Wunsch-)Koalitionspartnern bringt uns zu einer weiteren interessanten Auswertung: Welches sind &minus; laut Wahl-O-Mat &minus; die besten 
+                Regierungskoalitionen?    
+            </p>
+            <h2>Ein Koalitionsrechner der etwas anderen Art</h2>
+            <p>
+                Unsichere Umfragen vor der Bundestagswahl 2021 lassen die Medien beschwören: Die Wahl wird 
+                <a href="https://www.deutschlandfunk.de/unsichere-umfragen-wahlforscherin-bundestagswahl-bleibt.694.de.html?dram:article_id=502787">so</a> 
+                <a href="https://www.mdr.de/nachrichten/deutschland/wahlen/bundestagswahl/wahlprogramme-kandidaten-wahlumfragen-wahlausgang-offen-100.html">spannend</a>
+                <a href="https://www.zeit.de/politik/deutschland/2021-08/wahlumfragen-bundestagswahl-wahltrend-cdu-die-gruenen-spd">wie</a>
+                <a href="https://www.stuttgarter-zeitung.de/inhalt.bundestagswahl-2021-leipziger-politologe-wahlausgang-offen-wie-nie.eff6687f-886b-4c3e-b545-7af999dfee9b.html">nie</a>.
+                Gleich mehrere Kombination der großen Parteien könnten rein rechnerisch zu regierungsfähigen Mehrheiten gelangen. Auch in den Landtagen ist neben der 
+                “<a href="https://www.niedersachsen.de/politik_staat/landesregierung_ministerien/ein_jahr_grosse_koalition_fur_innovation_gerechtigkeit_und_zusammenhalt/fuer-innovation-gerechtigkeit-und-zusammenhalt--ein-jahr-groe-koalition-in-niedersachsen-171397.html">GroKo</a>” mit 
+                “<a href="https://www.baden-wuerttemberg.de/de/regierung/landesregierung/koalitionsvertrag-fuer-baden-wuerttemberg/">Schwarz-Grün</a>”, 
+                “<a href="https://www.schleswig-holstein.de/DE/Landesregierung/landesregierung_node.html">Jamaika</a>”- oder 
+                “<a href="https://www.spiegel.de/politik/deutschland/sachsen-anhalt-deutschland-koalition-als-vorbild-fuer-den-bund-a-0064aa19-b4b8-4f7e-aaa9-ebffc1e8d5f9">Deutschland</a>”-Koalition 
+                inzwischen fast alles vertreten.
+            </p>
+            <p>
+                Aber <a href="https://www.tagesschau.de/inland/fdp-sondierungen-abbruch-103.html">Koalitionsverhandlungen</a> sind schwierig. Also was, wenn wir den Wahl-O-Mat fragen, 
+                welche Fraktionen am besten zusammenpassen?
+            </p>
+            <p>
+                Für den folgenden Graphen wurde der durchschnittliche Wahl-O-Mat Score für verschiedene Regierungsbündnisse bestimmt. Bei mehr als zwei Koalitionspartnern wurden alle 
+                Kombinationen betrachtet, also bspw. für eine Koalition aus den drei Parteien “Partei A”, “Partei B” und “Partei C”:
+            </p>
+            <div class="math">
+                <img src="./media/eq3.svg" alt="Gemittelter Score = Mittelwert aus: Score A-B, Score A-C und Score B-C"/>
+            </div>
+            <p>
+                Das Ergebnis sieht wie folgt aus:
+            </p>
+            <div class="container barchart">
+                <iframe src="graphs/coalitions.htm" class="chart-iframe" scrolling="no", frameBorder="0"></iframe>
+            </div>
+            <p class="caption">
+                Durchschnittliche Wahl-O-Mat Scores für einige, nach der Bundestagswahl 2021 möglichen Koalitionen.
+            </p>
+            <p>
+                Wie oben schon angedeutet, schneiden erwartungsgemäß “Rot-Grün” und “Schwarz-Gelb” gut ab. Die Beste Übereinstimmung erzielt aber tatsächlich ein Rot-Rot-Grünes 
+                Bündnis, was vor allem an der hohen Übereinstimmung von DIE LINKE und GRÜNE liegt (87%). Ein rein Schwarz-Grünes Bündnis scheint aus Wahl-O-Mat-Sicht hingegen 
+                keine gute Idee (33%).
+            </p>
+            <p>
+                In den Landtagen sind jedoch alle der hier aufgeführten Koalitionen längst Realität. Das folgende Schaubild wurde mithilfe aller Wahl-O-Mate der jeweiligen 
+                Landtagswahlen ermittelt:
+            </p>
+            <div class="container map">
+                <iframe src="graphs/map.htm" class="chart-iframe" scrolling="no", frameBorder="0"></iframe>
+            </div>
+            <p class="caption">
+                Durchschnittliche Wahl-O-Mat Scores der Regierungskoalitionen in den verschiedenen Bundesländern. Mit der Maus über die Karte fahren, um detaillierte Werte 
+                anzeigen zu lassen. (Sowohl für Niedersachsen, als auch für Mecklenburg-Vorpommern sind zu den letzten Landtagswahlen keine Wahl-O-Mat-Daten verfügbar.) 
+            </p>
+            <p>
+                Auch hier zeichnet sich ein ähnliches Bild ab, es gibt aber durchaus auch regionale Unterschiede. So scheinen CDU und FDP laut Wahl-O-Mat in Nordrhein-Westfalen 
+                etwas besser zu harmonieren als auf Bundesebene. (Wohlgemerkt tritt die CDU im Bund gemeinsam mit der CSU an.) Auch Schwarz-Grün kommen in Baden-Württemberg - 
+                nach mehr als fünfjähriger Zusammenarbeit in der Landtagskoalition - mit 59% deutlich besser weg als man vom diesjährigen Bundestags-Wahl-O-Maten vermuten würde.
+            </p>
+            <p>
+                Natürlich wäre es gewagt zu behaupten, der gemittelte Wahl-O-Mat-Score wäre ein guter Indikator für eine erfolgreiche Zusammenarbeit. Die “Jamaika”-Koalition in 
+                Schleswig-Holstein, welche in der obigen Darstellung mit 45% die schlechteste Wertung erreicht, erzielt im Bundesvergleich beste 
+                <a href="https://www.ndr.de/nachrichten/schleswig-holstein/kommunalwahl_2018/Umfrage-Grosse-Zustimmung-fuer-Jamaika-Koalition,wahlumfrage770.html">Umfragewerte</a>. 
+                Vermutlich könnte man auch argumentieren, eine bessere Metrik wäre eine gewichtete Mittelung auf Basis der (erwarteten) Sitzverteilung. Jedoch hängt die 
+                Machtverteilung im Regierungsbündnis auch nicht zuletzt vom Verhandlungsgeschick der jeweiligen Parteien ab. Daher würde ich bezweifeln, dass das zu “genaueren” 
+                Ergebnissen führt.
+            </p>
+            <p>
+                Trotzdem vermute ich, dass die obige Auswertung durchaus einen Vorgeschmack auf die Koalitionsverhandlungen geben kann: So war der Wahl-O-Mat-Score für die 
+                Jamaika-Koalition für die Bundestagswahl 2017 mit 56% dem der großen Koalition (70%) deutlich unterlegen. Die FDP hat die Verhandlungen zur ersteren damals 
+                bekanntermaßen platzen lassen. Vielleicht hätte man sich die Mühe ersparen können, hätte man vorher den Wahl-O-Mat gefragt? &#x1F609;
+            </p>
+            <p>
+                Apropos Vergleich zur letzten Bundestagswahl: Wäre es nicht interessant, wenn man an den verschiedenen Wahl-O-Mat-Daten der letzten Jahre Schwankungen in der 
+                politischen Ausrichtung der Parteien erkennen könnte. Und…
+            </p>
+            <h2>Wie war das noch mal mit dem Rechtsruck?</h2>
+            <p>
+                Ich muss zugeben, als ich angefangen habe, diese Daten auszuwerten, war ich zuerst nicht ganz sicher, wonach ich überhaupt schauen soll. Ein Punkt hat mich aber vor 
+                allem interessiert: Kann man an den Wahl-O-Mat-Daten der letzten Jahre die “Neuausrichtung” der AfD zum politisch rechten Rand erkennen? (Während der Recherche ist mir 
+                aufgefallen, dass der Münchner Merkur <a href="https://www.merkur.de/politik/wahl-o-mat-check-vor-sachsen-wahl-afd-und-npd-im-vergleich-zr-12901439.html">den gleichen Gedanken</a>
+                hatte.) Die meisten können sich sicher gut erinnern, wie die Partei zu Beginn vor allem noch für seine 
+                <a href="https://www.zeit.de/politik/ausland/2013-05/protestparteien-europa-antieuro">eurokritischen</a> Positionen bekannt war. Dann kam die sogenannte “Flüchtlingskrise”. 
+                Und in der Folge sind auch mehrere Politiker der etablierten Parteien 
+                <a href="https://www.zeit.de/campus/2017-09/parteien-afd-ausserungen-fluechtlinge-bundestagswahl-quiz">mit zweifelhaften Aussagen aufgefallen</a>, auch, um der AfD die 
+                Wähler wieder abzugraben. Die Rede war (und ist zum Teil immer noch) von einem “Rechtsruck”, der durch Deutschland geht.
+            </p>
+            <p>
+                Um den Rechtsruck in den Wahl-O-Mat-Daten zu identifizieren, bräuchte man also eine Art “rechten Benchmark”, also eine Partei, die schon seit längeren am rechten 
+                Rand des politischen Spektrums verharrt. Dazu sollte sich die NPD eignen. Der Abgleich der Wahl-O-Mat-Positionen der verschiedenen Parteien mit denen der NPD 
+                müsste ein guter Maßstab für den Hang zu autoritären, rechten Inhalten sein.
+            </p>
+            <p>
+                Der nächste Graph zeigt den Wahl-O-Mat-Score der Bundestagsparteien mit der NPD seit 2009:
+            </p>
+            <div class="container linechart">
+                <iframe src="graphs/linechart.htm" class="chart-iframe" scrolling="no", frameBorder="0"></iframe>
+            </div>
+            <p class="caption">
+                "Wahl-O-Mat Scores" aller größeren Parteien mit der NPD als "Rechtsaußen-Benchmark" für die letzten vier Bundestagswahlen. 
+            </p>
+            <p>
+                Der Sprung der AfD von 49% in 2013 auf 63% in 2017 fällt dabei besonders auf. Bei den anderen Parteien lässt sich allerdings ein Rechtstruck allerhöchstens 
+                noch bei der CDU/CSU erkennen (von 41% NPD-Score 2013 auf 49% 2017). Bei der LINKEN und den GRÜNEN war die Übereinstimmung mit der NPD 2009 sogar noch 
+                vergleichsweise hoch und nimmt seitdem stetig ab. Alle anderen Schwankungen sind nicht groß genug für eine starke Aussagekraft.
+            </p>
+            <p>
+                Als ein Grund für die hohe Popularität der AfD wird unter anderem oft die lange Regierungszeit der großen Koalition genannt. Die “GroKo” hat zu einem 
+                Zusammenrücken der (ehemals) großen Volksparteien SPD und CDU geführt. Dadurch wurde die Opposition geschwächt und am rechten Rand ist eine Lücke entstanden, 
+                in die sich die AfD gedrängt hat, so die <a href="https://www.tagesspiegel.de/politik/schwache-opposition-die-grosse-koalition-macht-die-afd-stark/13336468.html">Argumentation</a>. 
+                Auch das lässt sich aus dem obigen Graph erahnen: Die SPD- und CDU-Kurven rücken bis 2017 zunächst zusammen. Wenn man die beiden Parteien direkt miteinander vergleicht, 
+                entwickelt sich der Wahl-O-Mat-Score (SPD vs. CDU) von 37% (2005) über 47% (2009) und 54% (2013) bis auf 70% (2017)! Bei der diesjährigen Bundestagswahl fällt der Wert 
+                dann wieder stark ab - auf 51%. Auch das ein Indiz dafür, dass die SPD “zu ihren Wurzeln zurückkehrt”, gleichzeitig möglicherweise die Rückgesinnung auf konservativere Werte bei der 
+                CDU/CSU nach der Ära Merkel.
+            </p>
+            <p>
+                So gut die präsentierten Daten die politischen Tendenzen der letzten Jahre in Deutschland abzubilden scheinen, so ist diese letzte Betrachtung jedoch mit der 
+                größten Vorsicht zu genießen: Zum einen ist es nur schwer zu argumentieren, dass die unterschiedlichen Wahl-O-Maten aus den letzten Jahren miteinander 
+                vergleichbar sein sollen: Die Thesen, die beim Wahl-O-Mat bewertet werden müssen, ändern sich mit dem aktuellen Zeitgeschehen. Während z.B. 2017 noch das 
+                Thema Migration im Vordergrund stand, so spielt spätestens seit der Europawahl 2019 der Klimawandel eine größere Rolle. Zum anderen wird das Ergebnis verzerrt 
+                vom oben erwähnten Versuch der Parteien, den Wahl-O-Mat auszunutzen, um bei zustimmungsfähigen Themen zu punkten. Vor allem aber ist die Idee vom politischen 
+                Spektrum an sich eine <a href="https://www.bpb.de/nachschlagen/lexika/pocket-politik/16547/rechts-links-schema">starke Vereinfachung</a>. Eine Alternative möchte 
+                ich im Folgenden präsentieren:
+            </p>
+            <h2>Das politische Spektrum in 2D</h2>
+            <p>
+                Der “politische Kompass” stellt den Versuch dar, politische Gesinnung in einem zweidimensionalen Modell darzustellen. Für eine detaillierte Erklärung, sowie 
+                einen Fragebogen zur Selbsteinstufung möchte ich gerne auf die Erfinder (<a href="https://www.politicalcompass.org/">politicalcompass.org</a>) verweisen. 
+                Im Prinzip geht es aber darum, dass politische Positionen auf zwei Achsen dargestellt werden: Die horizontale Achse bildet das wirtschaftliche Spektrum von 
+                wirtschaftlich links außen (maximale staatliche Kontrolle der Wirtschaft) nach rechts außen (komplett deregulierte Wirtschaft) ab, die vertikale Achse beschreibt 
+                die soziale Gesinnung, von unten nach oben: libertär nach autoritär. Ganz links wäre etwa der Marxismus verortet, ganz rechts der Neoliberalismus. Die senkrechte 
+                Achse verläuft von Anarchie (ganz unten) zu Diktatur (ganz oben).
+            </p>
+            <p>
+                Das folgende Diagramm sollte das verdeutlichen:
+            </p>
+            <div class="container compass">
+                <iframe src="graphs/compass.htm" class="chart-iframe" scrolling="no", frameBorder="0"></iframe>
+            </div>
+            <p class="caption">
+                Einordnung der Parteien in den "politischen Kompass" für den Wahl-O-Mat der Bundestagswahl 2021; ermittelt aus den Wahl-O-Mat Scores aller Parteien mit einem 
+                "autoritären Benchmark" (senkrechte Achse) und einem "ökonomisch rechten Benchmark" (horizontale Achse). Mit der Maus über die Punkte fahren, um die Namen 
+                anzuzeigen. Die meisten Kleinparteien sind der Übersichtlichkeit halber grau dargestellt. (Die V-Partei³ und SSW fehlen in der Darstellung, da sie mit DIE LINKE 
+                bzw. DKP überlappen.)
+            </p>
+            <p>
+                Die Darstellung stellt wohlgemerkt keine absolute Verortung der Parteien auf dem politischen Kompass dar, sondern nur die relative Position der Parteien 
+                zueinander. Sie folgt, wenn man die jeweiligen Wahl-O-Mat-Positionen von 2021 mit einem “ökonomisch rechten Benchmark” und einem “autoritären Benchmark” 
+                abgleicht.*
+            </p>
+            <p class="info">
+                *: Die Benchmarks habe ich dieses mal selbst erstellt. Dabei hab ich versucht, mich in die jeweiligen extremen Lager hineinzuversetzen und die 
+                Thesen entsprechend zu bewerten. Mein Verständnis von Politiktheorie ist zugegebenermaßen sehr begrenzt. Wer sich also noch mal vergewissern möchte &minus;
+                hier die Bewertungen zum Nachlesen:
+            </p>
+            <div class="info" id="thesen">
+                <p><a href="#thesen">Tabelle ausklappen</a></p>
+                <table>
+                    <tr><th>These</th><th>Öko. rechts</th><th>Auth.</th></tr>
+                    <tr><td>1. Auf allen Autobahnen soll ein generelles Tempolimit gelten</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>2. Deutschland soll seine Verteidigungsausgaben erhöhen</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>3. Bei Bundestagswahlen sollen auch Jugendliche ab 16 Jahren wählen dürfen</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>4. Die Förderung von Windenergie soll beendet werden</td><td>&#x2714;</td><td>&minus;</td></tr>
+                    <tr><td>5. Die Möglichkeiten der Vermieterinnen und Vermieter, Wohnungsmieten zu erhöhen, sollen gesetzlich stärker begrenzt werden</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>6. Impfstoffe gegen Covid-19 sollen weiterhin durch Patente geschützt sein</td><td>&#x2714;</td><td>&#x2714;</td></tr>
+                    <tr><td>7. Der für das Jahr 2038 geplante Ausstieg aus der Kohleverstromung soll vorgezogen werden</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>8. Alle Erwerbstätigen sollen in der gesetzlichen Rentenversicherung versichert sein müssen</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>9. Das Recht anerkannter Flüchtlinge auf Familiennachzug soll abgeschafft werden</td><td>&minus;</td><td>&#x2714;</td></tr>
+                    <tr><td>10. Auf den Umsatz, der in Deutschland mit digitalen Dienstleistungen erzielt wird, soll eine nationale Steuer erhoben werden</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>11. Die traditionelle Familie aus Vater, Mutter und Kindern soll stärker als andere Lebensgemeinschaften gefördert werden</td><td>&minus;</td><td>&#x2714;</td></tr>
+                    <tr><td>12. Spenden von Unternehmen an Parteien sollen weiterhin erlaubt sein</td><td>&#x2714;</td><td>&#x2714;</td></tr>
+                    <tr><td>13. Studentinnen und Studenten sollen BAföG unabhängig vom Einkommen ihrer Eltern erhalten</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>14. In Deutschland soll es generell möglich sein, neben der deutschen eine zweite Staatsbürgerschaft zu haben</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>15. Bundesbehörden sollen in ihren Veröffentlichungen unterschiedliche Geschlechtsidentitäten sprachlich berücksichtigen</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>16. Die Ostsee-Pipeline "Nord Stream 2", die Gas von Russland nach Deutschland transportiert, soll wie geplant in Betrieb gehen dürfen</td><td>&#x2714;</td><td>&#x2714;</td></tr>
+                    <tr><td>17. Der Solidaritätszuschlag soll vollständig abgeschafft werden</td><td>&#x2714;</td><td>&minus;</td></tr>
+                    <tr><td>18. Das Tragen eines Kopftuchs soll Beamtinnen im Dienst generell erlaubt sein</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>19. Die Zulassung von neuen Autos mit Verbrennungsmotor soll auch langfristig möglich sein</td><td>&#x2714;</td><td>&minus;</td></tr>
+                    <tr><td>20. Der Bund soll mehr Zuständigkeiten in der Schulpolitik erhalten</td><td>&minus;</td><td>&#x2714;</td></tr>
+                    <tr><td>21. Der Bund soll Projekte zur Bekämpfung des Antisemitismus stärker finanziell unterstützen</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>22. Chinesische Firmen sollen keine Aufträge für den Ausbau der Kommunikationsinfrastruktur in Deutschland erhalten dürfen</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>23. Der Staat soll weiterhin für Religionsgemeinschaften die Kirchensteuer einziehen</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>24. Der kontrollierte Verkauf von Cannabis soll generell erlaubt sein</td><td>&#x2714;</td><td>&#x2716;</td></tr>
+                    <tr><td>25. Deutschland soll aus der Europäischen Union austreten</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>26. Die Landeslisten der Parteien für die Wahlen zum Deutschen Bundestag sollen abwechselnd mit Frauen und Männern besetzt werden müssen</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>27. Stationäre Behandlungen im Krankenhaus sollen weiterhin über eine Fallpauschale abgerechnet werden.</td><td>&#x2716;</td><td>&#x2714;</td></tr>
+                    <tr><td>28. Auf hohe Vermögen soll wieder eine Steuer erhoben werden</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>29. Bei der Videoüberwachung öffentlicher Plätze soll Gesichtserkennungssoftware eingesetzt werden dürfen</td><td>&minus;</td><td>&#x2714;</td></tr>
+                    <tr><td>30. Auch Ehepaare ohne Kinder sollen weiterhin steuerlich begünstigt werden</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>31. Ökologische Landwirtschaft soll stärker gefördert werden als konventionelle Landwirtschaft</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>32. Islamische Verbände sollen als Religionsgemeinschaften staatlich anerkannt werden können</td><td>&minus;</td><td>&#x2716;</td></tr>
+                    <tr><td>33. Der staatlich festgelegte Preis für den Ausstoß von CO2 beim Heizen und Autofahren soll stärker steigen als geplant</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>34. Die Schuldenbremse im Grundgesetz soll beibehalten werden</td><td>&#x2714;</td><td>&minus;</td></tr>
+                    <tr><td>35. Asyl soll weiterhin nur politisch Verfolgten gewährt werden</td><td>&minus;</td><td>&#x2714;</td></tr>
+                    <tr><td>36. Der gesetzliche Mindestlohn soll spätestens im Jahr 2022 auf mindestens 12 Euro erhöht werden</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>37. Der Flugverkehr soll höher besteuert werden</td><td>&#x2716;</td><td>&minus;</td></tr>
+                    <tr><td>38. Unternehmen sollen selbst entscheiden, ob sie ihren Beschäftigten das Arbeiten im Homeoffice erlauben</td><td>&#x2714;</td><td>&#x2716;</td></tr>
+                </table>
+            </div>
+            <p>
+                Damit wird nun deutlicher, wo die Unterschiede zwischen den verschiedenen Parteien genau herkommen:
+            </p>
+            <ul>
+                <li>
+                    Die SPD scheint eher zentristische Positionen auf der autoritären Skala zu vertreten. Auf der wirtschaftlichen Skala ist sie weiter links als die meisten Parteien.
+                </li>
+                <li>
+                    CDU/CSU sind weiter von der Mitte entfernt als man es vermuten würde, aber etwas weiter (ökonomisch) links und weniger autoritär als die AfD.
+                </li>
+                <li>
+                    Die FDP ist erwartungsgemäßig ganz rechts auf der wirtschaftlichen Skala angesiedelt und weiter unten auf der autoritären Achse als die konservativen Parteien.
+                </li>
+                <li>
+                    DIE LINKE und GRÜNE sind ökonomisch noch weiter links als die SPD (Die GRÜNE sogar am weitesten links von allen Parteien!) &minus; auf der horizontalen Achse aber 
+                    weit im libertären Lager. Nur die neue Kleinpartei VOLT ist noch liberaler eingestellt.
+                </li>
+            </ul>
+            <p>
+                Es scheint also, dass wenn die “Neue Initiative Soziale Marktwirtschaft” von den GRÜNEN als 
+                “<a href="https://www.tagesschau.de/faktenfinder/insm-wahlkampf-gruene-101.html">Verbotspartei</a>” spricht, dann meinen sie damit vor allem Verbote 
+                für Wirtschaft und Industrie. Persönliche Freiheiten scheinen bei der Partei sogar weitaus stärker im Vordergrund zu stehen als bei den Konservativen und sogar 
+                mehr als bei den FDP.
+            </p>
+            <p>
+                Man kann auch erahnen, warum die Übereinstimmung der LINKEN mit der NPD vor einigen Jahren noch so hoch war (siehe oben). Damals war die Partei mutmaßlich 
+                noch autoritärer eingestellt, wenngleich ökonomisch weiter links. (Schließlich ist sie 
+                <a href="https://www.welt.de/politik/article3649188/Die-Linke-Wir-sind-Rechtsnachfolgerin-der-SED.html">aus der SED-Nachfolgepartei PDS hervorgegangen</a>.) Im ganz 
+                links oberen Eck wäre etwa die Sowjetunion oder Nordkorea verortet. Inzwischen scheint DIE LINKE eher in der linksliberalen Ecke unten links angekommen. Die NPD wiederum
+                ist eher oben mittig verordnet. Am ganz oberen Extrem wäre wohl vor 80 Jahren noch die NSDAP angeordnet worden, bzw. inzwischen das moderne 
+                <a href="https://www.politicalcompass.org/analysis2">China</a>.
+                Die AfD ist vermutlich weniger “nach rechts” als viel mehr “nach oben” gerutscht über die letzten Jahre. Und die gute Übereinstimmung zwischen CDU/CSU und AfD 
+                (70%, siehe oben) rührt wohl hauptsächlich von der gemeinsamen wirtschaftsliberalen Haltung.
+            </p>
+            <p>
+                Um es nochmal zu betonen: der oben abgebildete “politische Kompass” stellt keine absolute Einordnung dar, und kann daher nicht mit der Darstellung von 
+                <a href="https://www.politicalcompass.org/">politicalcompass.org</a> verglichen werden. Die relative Positionierung der Parteien untereinander hilft aber 
+                durchaus, die unterschiedlichen politischen Positionen einzuordnen, vor allem von den Kleinparteien, bei denen es sonst nur schwierig ist, einen Überblick 
+                zu gewinnen. Die relative Positionierung stimmt aber auch &minus; mit Ausnahme der GRÜNEN &minus; überraschend gut mit der 
+                <a href="https://www.politicalcompass.org/germany2021">Charakterisierung von Political Compass</a> überein!
+            </p>
+            <h2>Fazit</h2>
+            <p>
+                Der Wahl-O-Mat-Daten eignen sich hervorragend, um einen <i>schnellen</i> Überblick über die unterschiedlichen Parteien zu erhalten. Mitunter lassen sich dabei 
+                Tendenzen in der Änderung politischer Ausrichtungen abschätzen und &minus; mithilfe einiger “Benchmark-Bewertungen” &minus; Positionen übersichtlich im zweidimensionalen 
+                Spektrum darstellen. Dass die Übereinstimmungswerte ein guter Prädiktor für Zusammenarbeit in Koalitionen darstellen können, darf mindestens angezweifelt werden. 
+                Und auch sonst müssen die Ergebnisse mit Vorsicht genossen werden. Die Themen der Wahl-O-Mat Thesen sind über die Jahre hinweg nicht unbedingt konsistent. 
+                Auch versuchen die Parteien bisweilen die Ergebnisse zu beeinflussen, indem sie Thesen 
+                <a href="https://www.welt.de/politik/deutschland/article193354759/Europawahl-AfD-laesst-Parteiposition-zum-Dexit-im-Wahl-O-Mat-aendern.html">großzügig interpretieren</a>. 
+                Und letztlich können selbst mit 38 Thesen nur eine kleine Bandbreite der politisch und gesellschaftlich wichtigen Themen abgedeckt werden.
+            </p>
+            <p>
+                Am Ende des Tages ist das Ganze aber vor allem eins: eine spaßige Data Science-Übung. Wenn da nebenbei noch etwas politische Bildung hängen bleibt &minus; umso besser!
+            </p>
+            <p>&nbsp;</p>
+            <p>
+                Ach ja: Die Heatmaps zu allen Europawahlen und Bundestagswahlen seit 2004, sowie zu den letzten Landtagswahlen gibt es übrigens <a href="./wahlomat.htm">hier</a>!
+            </p>
+        </div>
+        <div id="table-of-contents">
+            <p>Inhalt</p>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footerbody">
+            &copy; 2021
+            <a href="https://www.reddit.com/user/ijonmichy"><img src="./media/reddit.png" /></a>
+            <a href="https://twitter.com/ijonmichy"><img src="./media/twitter.png" /></a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var toc = document.querySelector("#table-of-contents");
+    var headlines = document.querySelector("#textbody").querySelectorAll("H2")
+    for (i=0; i<headlines.length; i++) {
+        var link = document.createElement('a');
+        link.href = "#H" + i;
+        headlines[i].id = "H" + i;
+        link.innerHTML = headlines[i].innerHTML;
+        var p = document.createElement('p');
+        p.appendChild(link);
+        toc.appendChild(p);
+    }
+</script>
+</html>
