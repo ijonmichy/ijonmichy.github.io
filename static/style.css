@@ -95,6 +95,7 @@ div#banner #bannerbody img {
 
 div#content {
     margin: 30pt auto;
+    padding-left: 10pt;
     width: 960px;
 }
 
